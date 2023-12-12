@@ -1,3 +1,4 @@
+//411422259 蕭羽芳
 import java.util.*;
 public class _1212_1 {
 
@@ -7,21 +8,35 @@ public class _1212_1 {
 		int [] array = new int[4];//用來保存四顆骰子的點數
 		boolean ok=true;//ok為true 代表沒有發生四顆骰子點數全部相同
 		do {
+			ok=true;
 			for(int i=0;i<4;i++) 
 				System.out.printf("The #%d dice: %d\n",i+1,array[i] = dice());
 			sort(array);//將陣列儲存個內容由小到大排序
 			for(int i=0;i<4;i++)
 				System.out.printf("The #%d dice: %d\n",i+1,array[i] );
-			System.out.println("The result is "+(ok=check(array)));//呼叫副程式檢查陣列內容是否倆倆不重複
-		}while(!ok);
+			if(check(array)==0) {
+				ok=false;
+				int x = check(array);
+			}
+			System.out.println("The result is "+ok);//呼叫副程式檢查陣列內容是否倆倆不重複
+		}while(!ok);//等同於 while(ok == false)
 		
 
 	}
-	public static boolean check(int [] a) {
+	public static void point(int [] a) {
+		
+	}
+	public static int check(int [] a) {
+		int count = 0;
+		int an=0;
 		for(int i=0;i<a.length-1;i++)
-			if(a[i]==a[i+1])
-				return(true);
-		return(false);
+			if(a[i]==a[i+1]) {
+				count ++;
+				an = a[i];
+			}
+		if (count == 1 || count==3)		
+			return(an);
+		return(0);
 	}
 	public static void sort(int [] a) {
 		for(int i=0;i<a.length;i++)
