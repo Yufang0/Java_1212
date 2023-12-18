@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+file:/D:/User/OneDrive%20-%20輔仁大學/程式設計課/Java_1212/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+meta_index
